@@ -11,6 +11,13 @@ module FinancialApp
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.0
 
+        # CODE YOU SHOULD ADD vvvvvv
+        initializer(:remove_action_mailbox_and_activestorage_routes, after: :add_routing_paths) { |app|
+        app.routes_reloader.paths.delete_if {|path| path =~ /activestorage/}
+        app.routes_reloader.paths.delete_if {|path| path =~ /actionmailbox/ }
+      }
+      # CODE YOU SHOULD ADD ^^^^^^^^
+
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading
