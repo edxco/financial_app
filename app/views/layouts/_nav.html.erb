@@ -6,7 +6,7 @@
 
 <body class="antialiased bg-gray-200">
   <header class="lg:px-16 px-6 bg-white flex flex-wrap items-center lg:py-0 py-2">
-    <div class="flex-1 flex justify-between items-center">
+    <div class="flex-1 flex justify-between items-center mr-6">
       <a class="hover:bg-gray-50" href="#">
         <svg width="32" height="36" viewBox="0 0 32 36" xmlns="http://www.w3.org/2000/svg">
           <path
@@ -37,11 +37,7 @@
           <li><a class="lg:p-4 py-3 px-0 block border-b-2 border-transparent hover:border-indigo-400"
               href="#">Documentation</a></li>
           <li>
-          <% if logged_in? %>
-          <%= link_to 'Logout', logout_path, class: "lg:p-4 py-3 px-0 block border-b-2 border-transparent hover:border-indigo-400 lg:mb-0 mb-2", method: :delete %>
-          <% else %>
-          <%= link_to 'Login', login_path, class: "lg:p-4 py-3 px-0 block border-b-2 border-transparent hover:border-indigo-400 lg:mb-0 mb-2"%>
-          <% end %>
+          <% check_logged %>
           </li>
         </ul>
       </nav>
