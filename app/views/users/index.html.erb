@@ -1,1 +1,96 @@
-This is index
+<div class="py-12 bg-white h-screen">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="lg:text-center">
+          
+        <%= image_tag(user_avatar(current_user), class: "rounded-full h-50 mb-3 md:mx-auto border-4 border-gray-400") %>
+
+        <h2 class="text-base text-green-600 tracking-wide uppercase">Welcome <span class="font-semibold"><%= current_user.username.upcase %></span></h2>
+        <span class="sm:ml-3">
+            <button type="button" class="inline-flex items-center mt-5 mb-3 px-4 py-2 border rounded-md shadow-sm text-sm font-medium text-gray-900 border-gray-500 hover:bg-gray-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-300">
+              <!-- Heroicon name: check -->
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"></path>
+            </svg>
+              Log out
+            </button>
+        </span>
+        <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+          A better way to <span class="text-green-600">manage your</span> money
+        </p>
+      </div>
+  
+      <div class="mt-10">
+        <dl class="space-y-10 md:space-y-0 md:grid md:grid-cols-2 md:gap-x-8 md:gap-y-10">
+          <a href="/transactions" class="flex">
+            <div class="flex-shrink-0">
+              <div class="flex items-center justify-center h-12 w-12 rounded-md bg-green-500 text-white">
+                <!-- Heroicon name: globe-alt -->
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+              </div>
+            </div>
+            <div class="ml-4">
+              <dt class="text-lg leading-6 font-medium text-gray-900">
+                My expenses
+              </dt>
+              <dd class="mt-2 text-base text-gray-500">
+                Track all you money movements easely and with simple views.
+              </dd>
+            </div>
+          </a>
+  
+          <a href="#" class="flex">
+            <div class="flex-shrink-0">
+              <div class="flex items-center justify-center h-12 w-12 rounded-md bg-green-500 text-white">
+                <!-- Heroicon name: scale -->
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"></path></svg>
+              </div>
+            </div>
+            <div class="ml-4">
+              <dt class="text-lg leading-6 font-medium text-gray-900">
+                Categories
+              </dt>
+              <dd class="mt-2 text-base text-gray-500">
+                All the expenses can be grouped in order to get a more estructured management.
+              </dd>
+            </div>
+          </a>
+  
+          <a href="#" class="flex">
+            <div class="flex-shrink-0">
+              <div class="flex items-center justify-center h-12 w-12 rounded-md bg-green-500 text-white">
+                <!-- Heroicon name: lightning-bolt -->
+                <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                </svg>
+              </div>
+            </div>
+            <div class="ml-4">
+              <dt class="text-lg leading-6 font-medium text-gray-900">
+                Member expenses
+              </dt>
+              <dd class="mt-2 text-base text-gray-500">
+                See the expenses of the family and plan togheter a better financial future.
+              </dd>
+            </div>
+          </a>
+  
+          <a href="#" class="flex">
+            <div class="flex-shrink-0">
+              <div class="flex items-center justify-center h-12 w-12 rounded-md bg-green-500 text-white">
+                <!-- Heroicon name: annotation -->
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+              </div>
+            </div>
+            <div class="ml-4">
+              <dt class="text-lg leading-6 font-medium text-gray-900">
+                Edit profile
+              </dt>
+              <dd class="mt-2 text-base text-gray-500">
+                Edit your avatar or your name anytime.
+              </dd>
+            </div>
+          </a>
+        </dl>
+      </div>
+    </div>
+  </div>

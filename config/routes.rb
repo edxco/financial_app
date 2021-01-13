@@ -7,4 +7,13 @@ Rails.application.routes.draw do
   get 'login', to: 'sessions#new'
   post 'login', to: 'sessions#create'
   delete 'logout', to: 'sessions#destroy'
+
+  resources :transactions
+
+  get '/profile', to: 'pages#profile'
+  get '/newgroup', to: 'groups#new'
+  get '/newtransaction', to: 'transactions#new'
+  get '/etransactions', to: 'transactions#etransaction'
+  get '/memberstransactions', to: 'transactions#members_transactions'
+
 end

@@ -1,6 +1,7 @@
 class SessionsController < ApplicationController
 
     def new
+      
     end
 
     def create
@@ -8,7 +9,7 @@ class SessionsController < ApplicationController
       if user.is_a?(User)
         session[:user_id] = user.id
         flash[:notice] = "Logged in successfully"
-        redirect_to user
+        redirect_to users_path(@user)
       else
         flash.now[:alert] = "There was something wrong with your login details"
         render 'new'
