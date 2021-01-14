@@ -28,10 +28,6 @@ class UsersController < ApplicationController
 
     def create
         @user = User.new(user_params)
-        if user_params[:avatar].present?
-            else
-            user_params[:avatar] = './app/assets/images/'
-        end
         @user.avatar.attach(user_params[:avatar])
         if @user.save
             session[:user_id] = @user.id

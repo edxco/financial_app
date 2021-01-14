@@ -1,0 +1,120 @@
+<div class="container-fluid cont-background d-flex  align-items-center fixed-top">
+
+  <div class="row no-gutters d-flex justify-content-between align-items-center w-100 mx-auto mt-3">
+    <div class="col-12 d-flex justify-content-between align-items-center">
+      <a href="/profile"><i class="fas fa-bars h3 text-white"></i></a>
+      <span class="h3 text-white ml-2">Categories</span>
+      <i class="fas fa-search h3 text-white"></i>
+    </div>
+  
+    <div class="d-flex  justify-content-center align-items-center w-100 mx-auto">
+
+      <div class="mt-4 col-4 p-0">
+        <span>
+          <a href="/profile"><i class=" fas fa-arrow-left fa-2x text-white"></i></a>
+          <hr class= "border m-1 hiden-line">
+        </span>
+      </div>
+
+      <div class="px-0 mt-4 col-4 d-flex flex-column justify-content-center align-items-center">
+        <span class="h6 text-white text-center m-0">Most Recent</span>
+        <hr class= "border border-white m-1">
+      </div>
+
+      <div class="px-0 mt-4 pl-2 col-4 d-flex flex-column justify-content-center align-items-center">
+        <span class="h6 text-grey text-center my-0 ">Most Ancient</span>
+        <hr class= "border m-1 hiden-line">
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="text-gray-600 body-font">
+  <div class="container px-5 py-24 mx-auto">
+    <div class="flex flex-col text-center w-full mb-20">
+      <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">Master Cleanse Reliac Heirloom</h1>
+      <p class="lg:w-2/3 mx-auto leading-relaxed text-base">Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical gentrify, subway tile poke farm-to-table. Franzen you probably haven't heard of them man bun deep jianbing selfies heirloom prism food truck ugh squid celiac humblebrag.</p>
+    </div>
+    <div class="flex flex-wrap -m-4 text-center">
+      <div class="p-4 md:w-1/4 sm:w-1/2 w-full">
+        <div class="border-2 border-gray-200 px-4 py-6 rounded-lg">
+          <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="text-green-500 w-12 h-12 mb-3 inline-block" viewBox="0 0 24 24">
+            <path d="M8 17l4 4 4-4m-4-5v9"></path>
+            <path d="M20.88 18.09A5 5 0 0018 9h-1.26A8 8 0 103 16.29"></path>
+          </svg>
+          <h2 class="title-font font-medium text-3xl text-gray-900">2.7K</h2>
+          <p class="leading-relaxed">Downloads</p>
+        </div>
+      </div>
+      <div class="p-4 md:w-1/4 sm:w-1/2 w-full">
+        <div class="border-2 border-gray-200 px-4 py-6 rounded-lg">
+          <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="text-green-500 w-12 h-12 mb-3 inline-block" viewBox="0 0 24 24">
+            <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"></path>
+            <circle cx="9" cy="7" r="4"></circle>
+            <path d="M23 21v-2a4 4 0 00-3-3.87m-4-12a4 4 0 010 7.75"></path>
+          </svg>
+          <h2 class="title-font font-medium text-3xl text-gray-900">1.3K</h2>
+          <p class="leading-relaxed">Users</p>
+        </div>
+      </div>
+      <div class="p-4 md:w-1/4 sm:w-1/2 w-full">
+        <div class="border-2 border-gray-200 px-4 py-6 rounded-lg">
+          <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="text-green-500 w-12 h-12 mb-3 inline-block" viewBox="0 0 24 24">
+            <path d="M3 18v-6a9 9 0 0118 0v6"></path>
+            <path d="M21 19a2 2 0 01-2 2h-1a2 2 0 01-2-2v-3a2 2 0 012-2h3zM3 19a2 2 0 002 2h1a2 2 0 002-2v-3a2 2 0 00-2-2H3z"></path>
+          </svg>
+          <h2 class="title-font font-medium text-3xl text-gray-900">74</h2>
+          <p class="leading-relaxed">Files</p>
+        </div>
+      </div>
+      <div class="p-4 md:w-1/4 sm:w-1/2 w-full">
+        <div class="border-2 border-gray-200 px-4 py-6 rounded-lg">
+          <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="text-green-500 w-12 h-12 mb-3 inline-block" viewBox="0 0 24 24">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+          </svg>
+          <h2 class="title-font font-medium text-3xl text-gray-900">46</h2>
+          <p class="leading-relaxed">Places</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="sticky-container">
+  <div class="group-spacer">
+  </div>
+
+  <% @groups.each do |group| %>
+    <div class="card mb-3 card-transaction mx-auto">
+      <a href="/groups/<%= group.id %>">
+        <div class="row">
+            <div class="col-5 d-flex justify-content-center">
+              <i class="p-1 fas <%= group.icon %> fa-6x card-img align-self-center text-primary h1 mx-0" ></i>
+            </div>
+
+            <div class="col-7 ">
+              <div class="card-body mt-2 mx-0 px-3 py-2">
+                <div class= " w-100">
+                  <p class="card-title h5 text-capitalize text-muted m-0"> <%= group.name %></p>
+                  <p class="card-text h6 text-capitalize text-muted font-italic mt-4"> <%= group.created_at.strftime('%d %b %Y') %></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </a>
+        <%= link_to 'Delete', group, method: :delete, data: {confirm: 'Are you sure?'}, class: "text-danger float-right my-0 pl-2 ml-4 h6 font-weight-bold #{group_is_empty?(group.id) }"%> 
+    </div>
+  <% end %>
+</div>
+
+<div class="espace-button">
+  </div>
+
+<div class="container-fluid cont-button d-flex align-items-center fixed-bottom">
+  <a href="/groups/new" class='w-100 m-2'>
+    <div class=" d-flex justify-content-center align-items-center  border border-white w-100 button-transaction">
+      <span class="h5 text-white m-0 py-2">ADD NEW</span>
+    </div>
+    </a>
+</div>
+

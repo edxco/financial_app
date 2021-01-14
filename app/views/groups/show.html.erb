@@ -1,0 +1,90 @@
+<div class="container-fluid cont-background d-flex  align-items-center fixed-top">
+
+  <div class="row no-gutters d-flex justify-content-between align-items-center w-100 mx-auto mt-3">
+    <div class="col-12 d-flex justify-content-between align-items-center">
+      <a href="/profile"><i class="fas fa-bars h3 text-white"></i></a>
+      <span class="h3 text-white ml-3">Category Details</span>
+      <i class="fas fa-search h3 text-white"></i>
+    </div>
+  
+    <div class="d-flex  justify-content-center align-items-center w-100 mx-auto">
+      <div class="mt-4 col-4 p-0">
+        <span>
+          <a href="/groups"><i class=" fas fa-arrow-left fa-2x text-white"></i></a>
+          <hr class= "border m-1 hiden-line">
+        </span>
+      </div>
+
+      <div class="px-0 mt-4 col-4 d-flex flex-column justify-content-center align-items-center">
+        <span class="h6 text-white text-center m-0">Most Recent</span>
+        <hr class= "border border-white m-1">
+      </div>
+
+      <div class="px-0 mt-4 pl-4 col-4 d-flex flex-column justify-content-center align-items-center">
+        <span class="h6 text-grey text-center my-0 ">Most Ancient</span>
+        <hr class= "border m-1 hiden-line">
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="sticky-container2">
+  <div class="group-spacer">
+  </div>
+  <%= flash_messages %>
+  <div class="card mb-2  mx-2">
+    <div class="card-body d-flex justify-content-between">
+      <span class="h5 text-muted m-0">Total Amount</span> <span class="h5 text-dark font-weight-bolder m-0"> <%= @group_transaction_sum %></span>
+    </div>
+  </div>
+
+  <div class="mx-3 my-2">
+    <a class="btn btn-primary btn-block" href="/groups/<%="#{params[:id]}"%>/edit" role="button">Edit group</a>
+  </div>
+ 
+    
+  <% @group_transactions.each do |transaction| %>
+    <div class="card mb-3 card-transaction mx-auto">
+      <div class="row no-gutters">
+        <div class="col-3 d-flex justify-content-center">
+          <i class="p-1 fas <%= transaction.icon %> fa-6x card-img align-self-center text-primary h1 m-0" ></i>
+        </div>
+
+        <div class="col-7 ">
+          <div class="card-body mx-0 px-3 py-2">
+            <div class= " w-100 align-items-center">
+              <span class="card-title h5 text-capitalize text-muted m-0"> <%= transaction.name %></span> <br>
+              <span class="card-text h6 text-capitalize text-muted font-italic my-0"> Category: <%= transaction.gname %>
+              </span>  <br>
+              <span class="card-text h6 text-capitalize text-muted font-italic my-0"> Created by: <%= transaction.uname %>
+              </span> 
+            </div>
+              
+            <div class="d-flex mt-1">
+              <p class="card-text text-muted mb-0 h6"><%= transaction.created_at.strftime('%d-%m-%Y') %></p>
+            </div>
+  
+          </div>
+        </div>
+
+        <div class="col-2  d-flex justify-content-center pt-1">
+          <span class="card-text h5 text-center mt-3 "> $<%= transaction.amount %></span>
+        </div>
+
+      </div>
+
+    </div>
+      
+  <% end %>
+
+  
+
+
+  
+</div>
+
+
+    
+
+

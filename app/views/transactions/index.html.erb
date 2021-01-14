@@ -1,96 +1,127 @@
 <%= render 'nav' %>
+<div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
 
-<div class="py-12 bg-white h-screen">
+    <div class="py-12 px-10 bg-white h-screen">
 
-
-    <div class="container-fluid cont-background d-flex  align-items-center fixed-top">
-        <div class="row no-gutters d-flex justify-content-between align-items-center w-100 mx-auto mt-3">
-          <div class="col-12 d-flex justify-content-between align-items-center">
-            <a href="/profile"><i class="fas fa-bars h3 text-white"></i></a>
-            <span class="h3 text-white ">Expenses</span>
-            <i class="fas fa-search h3 text-white"></i>
-          </div>
-      
-        
-          <div class="d-flex  justify-content-center align-items-center w-100 mx-auto">
-      
-            <div class="mt-4 col-4 p-0">
-              <span>
-                <a href="/profile"><i class=" fas fa-arrow-left fa-2x text-white"></i></a>
-                <hr class= "border m-1 hiden-line">
-              </span>
-            </div>
-      
-            <div class="px-0 mt-4 col-4 d-flex flex-column justify-content-center align-items-center">
-              <span class="h6 text-white text-center m-0">Most Recent</span>
-              <hr class= "border border-white m-1">
-            </div>
-      
-            <div class="px-0 mt-4 pl-2 col-4 d-flex flex-column justify-content-center align-items-center">
-              <span class="h6 text-grey text-center my-0 ">Most Ancient</span>
-              <hr class= "border m-1 hiden-line">
-            </div>
-          </div>
-        </div>
-      </div>
-      
-      <div class="sticky-container">
-      <div class="group-spacer">
-        </div>
-
-      <div class="card mb-2  mx-2">
-        <div class="card-body d-flex justify-content-between">
-          <span class="h5 text-muted m-0">Total Amount</span> <span class="h5 text-dark font-weight-bolder m-0"> $<%= @transaction_sum %></span>
-          </div>
-      </div>
-      
-          <% @user_transactions.each do |transaction| %>
-      
-          <div class="card mb-3 card-transaction mx-auto">
-              <div class="row no-gutters">
-      
-                <div class="col-3 d-flex justify-content-center">
-                  <i class="p-1 fas <%= transaction.icon %> fa-6x card-img align-self-center text-primary h1 m-0" ></i>
+        <section class="text-gray-600 body-font">
+            <div class="container px-5 py-24 mx-auto">
+                <div class="flex flex-col text-center w-full mb-20">
+                    <h1 class="sm:text-4xl text-3xl font-medium title-font mb-2 text-gray-900">Finance @ </h1>
+                    <p class="lg:w-2/3 mx-auto leading-relaxed text-lg text-green-600">
+                    For <span class="font-semibold"><%= @current_user.username.upcase %></span>
+                    </p>
+                    <p
+                        class="inline-flex items-center px-4 py-2 border-0 font-medium text-4xl block mx-auto">
+                        <!-- Heroicon name: check -->
+                        <svg class="w-10 h-10 block" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="text-red-700"
+                                d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z">
+                            </path>
+                        </svg>
+                        <span class="mx-3 text-red-700"><%= @transaction_sum %></span>
+                        <span class="text-sm font-normal text-red-300 pt-4"> Expenses</span>
+                    </p>
+                    <p
+                        class="inline-flex items-center px-4 py-2 border-0 text-4xl font-bold block mx-auto">
+                        <!-- Heroicon name: check -->
+                        <svg class="w-10 h-10 block" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="text-green-700"
+                                d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z">
+                            </path>
+                        </svg>
+                        <span class="mx-3 text-green-700"><%= @income_transaction_sum %></span>
+                        <span class="text-sm font-normal text-green-300 pt-4"> Income</span>
+                    </p>
                 </div>
-      
-                <div class="col-7 ">
-                  <div class="card-body mx-0 px-3 py-2">
-                  <div class= "w-100 align-items-center">
-                    <span class="card-title h5 text-capitalize text-muted m-0"> <%= transaction.name %></span> <br>
-                    <span class="card-text h6 text-capitalize text-muted font-italic my-0"> Category: <%= transaction.gname %></span>
-                  </div>
-                    
-                  <div class="d-flex mt-1">
-                  <p class="card-text text-muted mb-0 h6 "><%= transaction.created_at.strftime('%d-%m-%Y') %></p>
-                  <%= link_to "Edit", "/transactions/#{transaction.id}/edit", class: "text-primary ml-3 h6 font-weight-bold" %>
-      
-                  <%= link_to 'Delete', transaction, method: :delete, data: {confirm: 'Are you sure?'}, class: "text-danger ml-3 h6 font-weight-bold" %>
-                  </div>
-                    
-                  </div>
+                <div class="w-full mx-auto overflow-auto">
+                    <table class="table-auto w-full text-left whitespace-no-wrap">
+                        <thead>
+                            <tr>
+                                <th
+                                    class="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-base uppercase bg-gray-100">
+                                    Group</th>
+                                    <th
+                                    class="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-base uppercase bg-gray-100">
+                                    Description</th>
+                                <th
+                                    class="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-base uppercase bg-gray-100">
+                                    Date</th>
+                                <th colspan="2"
+                                    class="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-base uppercase bg-gray-100">
+                                    Price</th>
+                                <th colspan="2"
+                                    class="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-base text-center uppercase bg-gray-100">
+                                    Actions </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% @user_transactions.each do |transaction| %>
+                            <tr>
+                                <td class="px-4 py-3">
+                                    <div
+                                        class="w-10 h-10 mr-3 inline-flex items-center justify-center rounded-full bg-green-500 text-green-500 mb-4">
+                                        <i class="p-1 <%= transaction.icon %> fa-lg text-white"></i>
+                                    </div>
+                                    <%= transaction.gname %>
+                                </td>
+                                <td class="px-4 py-3 text-green-700 font-bold">
+                                    <%= transaction.name %>
+                                </td>
+                                <td class="px-4 py-3"><%= transaction.created_at.strftime('%d-%m-%Y') %></td>
+                                <td class="p-0 m-0 py-3">
+                                    <svg class="w-6 h-6 block mx-auto" fill="none" stroke="currentColor"
+                                        viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            class="text-green-600"
+                                            d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z">
+                                        </path>
+                                    </svg>
+                                </td>
+                                <td class="pl-0 pr-4 pt-3 pb-4 text-lg text-green-600 font-semibold">
+                                    <%= transaction.amount %></td>
+                                <td class="text-center">
+                                    <a href="/transactions/<%=transaction.id%>/edit"
+                                        class="rounded-full w-7 h-7 bg-green-500 hover:bg-green-600 p-0 border-0 inline-flex items-center justify-center text-white ml-4">
+                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z">
+                                            </path>
+                                        </svg>
+                                    </a>
+                                </td>
+                                <td class="text-center">
+                                    <a data-confirm="Are you sure?" data-method="delete" href="transaction"
+                                        class="rounded-full w-7 h-7 bg-red-500 hover:bg-red-600 p-0 border-0 inline-flex items-center justify-center text-white ml-4">
+                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16">
+                                            </path>
+                                        </svg>
+                                    </a>
+                                </td>
+                            </tr>
+                            <% end %>
+                        </tbody>
+                    </table>
                 </div>
-      
-                <div class="col-2  d-flex justify-content-center pt-1">
-                    <span class="card-text h5 text-center mt-3 "> $<%= transaction.amount %></span>
-                  </div>
-      
-              </div>
-      
+                <div class="flex pl-4 mt-4 w-full mx-auto">
+                    <a href="/transactions/new"
+                        class="flex ml-auto items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-green-500 hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500">
+                        Add New Expense
+                        <!-- Heroicon name: check -->
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </a>
+                </div>
             </div>
-            
-          <% end %>
-      
-          </div>
-      
-        <div class="container-fluid espace-button d-flex  align-items-center">
-        
-        </div>
-       
-        <div class="container-fluid cont-button d-flex align-items-center fixed-bottom">
-        <a href="/transactions/new" class='w-100 m-2'><div class=" d-flex justify-content-center align-items-center  border border-white w-100 button-transaction">
-          <span class="h5 text-white m-0 py-2">ADD NEW</span>
-        </div></a>
-      </div>
+        </section>
 
-
+    </div>
 </div>
