@@ -1,68 +1,118 @@
-
-<div class="container-fluid cont-background d-flex  align-items-center fixed-top">
-
-  <div class="row no-gutters d-flex justify-content-between align-items-center w-100 mx-auto mt-3">
-    <div class="col-12 d-flex justify-content-between align-items-center">
-      <a href="/profile"><i class="fas fa-bars h3 text-white"></i></a>
-      <span class="h3 text-white ml-2 ">Group</span>
-      <i class="fas fa-search h3 text-white"></i>
-    </div>
+<%= render 'shared/errors', obj: @group %>
+<%= form_with model: @group do |f| %>
+<div class="md:w-1/2 bg-gray-100 rounded-lg p-8 flex flex-col md:mx-auto w-full mt-10 md:mt-0">
   
-    <div class="row d-flex justify-content-start align-items-center w-100 mx-auto">
+  <div class="relative mb-4">
+    <label for="category-name" class="leading-7 text-sm text-gray-600">Category name</label>
+    <%= f.text_field :name, class: "w-full bg-white rounded border border-gray-300 focus:border-green-500 focus:ring-2 focus:ring-green-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" %>
+  </div>
+  <div class="relative mb-4">
+    <label for="icon" class="leading-7 text-sm text-gray-600">Change icon: *</label>
 
-      <div class="mt-4 col-1 p-0">
-        <span>
-          <a href="/transactions"><i class=" fas fa-arrow-left fa-2x text-white"></i></a>
-          <hr class= "border m-1 hiden-line">
-        </span>
+    <div class="flex flex-wrap sm:mx-auto sm:mb-2 -mx-2">
+      <div class="p-2 sm:w-1/3  md:w-1/4 lg:w-1/6">
+        <div class="bg-gray-100 rounded flex p-4 h-full items-center">
+
+          <i class="p-1 fa fa-birthday-cake fa-md text-green-600"></i>
+
+          <span class="title-font font-medium"><%= f.radio_button :icon ,"fa fa-birthday-cake"%></span>
+        </div>
       </div>
-      
+      <div class="p-2 sm:w-1/3  md:w-1/4 lg:w-1/6">
+        <div class="bg-gray-100 rounded flex p-4 h-full items-center">
 
-      <div class="mt-4 col-10 d-flex flex-column justify-content-center align-items-center">
-        <span class="h6 text-white text-center my-0">Add a new group</span>
-        <hr class= "border border-white m-1">
+          <i class="p-1 fa fa-cutlery fa-md text-green-600"></i>
+
+          <span class="title-font font-medium"><%= f.radio_button :icon ,"fa fa-cutlery"%></span>
+        </div>
+      </div>
+      <div class="p-2 sm:w-1/3  md:w-1/4 lg:w-1/6">
+        <div class="bg-gray-100 rounded flex p-4 h-full items-center">
+
+          <i class="p-1 fa fa-plane fa-md text-green-600"></i>
+
+          <span class="title-font font-medium"><%= f.radio_button :icon ,"fa fa-plane"%></span>
+        </div>
+      </div>
+      <div class="p-2 sm:w-1/3  md:w-1/4 lg:w-1/6">
+        <div class="bg-gray-100 rounded flex p-4 h-full items-center">
+
+          <i class="p-1 fa fa-gamepad fa-md text-green-600"></i>
+
+          <span class="title-font font-medium"><%= f.radio_button :icon ,"fa fa-gamepad"%></span>
+        </div>
+      </div>
+      <div class="p-2 sm:w-1/3  md:w-1/4 lg:w-1/6">
+        <div class="bg-gray-100 rounded flex p-4 h-full items-center">
+
+          <i class="p-1 fa fa-car fa-md text-green-600"></i>
+
+          <span class="title-font font-medium"><%= f.radio_button :icon ,"fa fa-car"%></span>
+        </div>
+      </div>
+      <div class="p-2 sm:w-1/3  md:w-1/4 lg:w-1/6">
+        <div class="bg-gray-100 rounded flex p-4 h-full items-center">
+
+          <i class="p-1 fa fa-home fa-md text-green-600"></i>
+
+          <span class="title-font font-medium"><%= f.radio_button :icon ,"fa fa-home"%></span>
+        </div>
+      </div>
+      <div class="p-2 sm:w-1/3  md:w-1/4 lg:w-1/6">
+        <div class="bg-gray-100 rounded flex p-4 h-full items-center">
+
+          <i class="p-1 fa fa-medkit fa-md text-green-600"></i>
+
+          <span class="title-font font-medium"><%= f.radio_button :icon ,"fa fa-medkit"%></span>
+        </div>
+      </div>
+      <div class="p-2 sm:w-1/3  md:w-1/4 lg:w-1/6">
+        <div class="bg-gray-100 rounded flex p-4 h-full items-center">
+
+          <i class="p-1 fa fa-gift fa-md text-green-600"></i>
+
+          <span class="title-font font-medium"><%= f.radio_button :icon ,"fa fa-gift"%></span>
+        </div>
+      </div>
+      <div class="p-2 sm:w-1/3  md:w-1/4 lg:w-1/6">
+        <div class="bg-gray-100 rounded flex p-4 h-full items-center">
+
+          <i class="p-1 fa fa-mobile fa-md text-green-600"></i>
+
+          <span class="title-font font-medium"><%= f.radio_button :icon ,"fa fa-mobile"%></span>
+        </div>
+      </div>
+      <div class="p-2 sm:w-1/3  md:w-1/4 lg:w-1/6">
+        <div class="bg-gray-100 rounded flex p-4 h-full items-center">
+
+          <i class="p-1 fa fa-space-shuttle fa-md text-green-600"></i>
+
+          <span class="title-font font-medium"><%= f.radio_button :icon ,"fa fa-space-shuttle"%></span>
+        </div>
+      </div>
+      <div class="p-2 sm:w-1/3  md:w-1/4 lg:w-1/6">
+        <div class="bg-gray-100 rounded flex p-4 h-full items-center">
+
+          <i class="p-1 fa fa-graduation-cap fa-md text-green-600"></i>
+
+          <span class="title-font font-medium"><%= f.radio_button :icon ,"fa fa-graduation-cap"%></span>
+        </div>
+      </div>
+      <div class="p-2 sm:w-1/3  md:w-1/4 lg:w-1/6">
+        <div class="bg-gray-100 rounded flex p-4 h-full items-center">
+
+          <i class="p-1 fa fa-dribbble fa-md text-green-600"></i>
+
+          <span class="title-font font-medium"><%= f.radio_button :icon ,"fa fa-dribbble"%></span>
+        </div>
       </div>
 
-      
     </div>
   </div>
+
+
+    <%= f.submit class: "text-white bg-green-500 border-0 py-2 px-8 focus:outline-none hover:bg-green-600 rounded text-lg"%>
+
+
 </div>
-
-<div class="sticky-container2" >
-  <div class="group-spacer">
-  </div>
-
-  <%= simple_form_for(@group) do |f| %>
-    <%= f.error_notification %>
-    <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
-
-    <div class="form-inputs mx-2"">
-      <%= f.input :name, required: true, label_html: { class: 'text-dark h4' } %>
-
-      <%= f.label :icon, class: 'text-dark h4'%>
-
-      <div class="d-flex jsutify-contente-between flex-wrap">
-        <div class="mx-1 my-1"><i class="fas fa-glass-cheers fa-2x"></i><%= f.radio_button :icon ,"fa-glass-cheers"%></div>
-        <div class="mx-1 my-1"><i class="fas fa-car fa-2x"></i><%= f.radio_button :icon ,"fa-car"%></div>
-        <div class="mx-1 my-1"><i class="fas fa-plane fa-2x"></i><%= f.radio_button :icon ,"fa-plane"%></div>
-        <div class="mx-1 my-1"><i class="fas fa-trash-alt fa-2x"></i><%= f.radio_button :icon ,"fa-trash-alt"%></div>
-        <div class="mx-1 my-1"><i class="fas fa-laptop fa-2x"></i><%= f.radio_button :icon ,"fa-laptop"%></div>
-        <div class="mx-1 my-1"><i class="fas fa-money-bill-wave fa-2x"></i><%= f.radio_button :icon ,"fa-money-bill-wave"%></div>
-        <div class="mx-1 my-1"><i class="fas fa-mobile-alt fa-2x"></i><%= f.radio_button :icon ,"fa-mobile-alt"%></div>
-        <div class="mx-1 my-1"><i class="fas fa-handshake fa-2x"></i><%= f.radio_button :icon ,"fa-handshake"%></div>
-        <div class="mx-1 my-1"><i class="fas fa-shipping-fast fa-2x"></i><%= f.radio_button :icon ,"fa-shipping-fast"%></div>
-        <div class="mx-1 my-1"><i class="fas fa-credit-card fa-2x"></i><%= f.radio_button :icon ,"fa-credit-card"%></div>
-        <div class="mx-1 my-1"><i class="fas fa-receipt fa-2x"></i><%= f.radio_button :icon ,"fa-receipt"%></div>
-        <div class="mx-1 my-1"><i class="fas fa-utensils fa-2x"></i><%= f.radio_button :icon ,"fa-utensils"%></div>
-        <div class="mx-1 my-1"><i class="fas fa-pencil-alt fa-2x"></i><%= f.radio_button :icon ,"fa-pencil-alt"%></div>
-        <div class="mx-1 my-1"><i class="fas fa-cog fa-2x"></i><%= f.radio_button :icon ,"fa-cog"%></div>
-        <div class="mx-1 my-1"><i class="fas fa-globe fa-2x"></i><%= f.radio_button :icon ,"fa-globe"%></div>
-        <div class="mx-1 my-1"><i class="fas fa-shopping-cart fa-2x"></i><%= f.radio_button :icon ,"fa-shopping-cart"%></div>
-      </div>
-    </div>
-
-    <div class="form-actions mx-2 mt-2">
-      <%= f.button :submit,  class: 'btn btn-success btn-block' %>
-    </div>
-  <% end %>
-</div>
+<% end %>

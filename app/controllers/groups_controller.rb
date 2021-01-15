@@ -7,10 +7,7 @@ class GroupsController < ApplicationController
     end
   
     def show
-      @group_transactions = Transaction.grouped_display(params[:id])
-  
-      @group_transactions = @group_transactions.order(created_at: :desc)
-  
+      @group_transactions = Transaction.grouped_display(params[:id]).order(created_at: :desc)
       @group_transaction_sum = @group_transactions.sum(:amount)
     end
   

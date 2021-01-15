@@ -31,3 +31,9 @@
 
 en:
   hello: "Hello world"
+
+  helpers:
+    submit:
+      groups:
+        create: "Create"
+        update: "Update"

@@ -6,8 +6,7 @@ class TransactionsController < ApplicationController
       @user_transactions = Transaction.expense_display(current_user.id).order(created_at: :desc)
       @transaction_sum = @user_transactions.sum(:amount)
 
-      @income_user_transaction = Transaction.income_display(current_user).order(created_at: :desc)
-      @income_transaction_sum = @income_user_transaction.sum(:amount)
+      @income_transaction_sum = Transaction.income_display(current_user).order(created_at: :desc).sum(:amount)
       
     end
   
@@ -51,25 +50,26 @@ class TransactionsController < ApplicationController
       @transaction.destroy
       if no_category
         respond_to do |format|
-          format.html { redirect_to '/etransactions', notice: 'Expense was successfully destroyed.' }
+          format.html { redirect_to '/income', notice: 'Expense was successfully delete.' }
         end
   
       else
         respond_to do |format|
-          format.html { redirect_to transactions_url, notice: 'Expense was successfully destroyed.' }
+          format.html { redirect_to transactions_url, notice: 'Expense was successfully delete.' }
         end
   
       end
     end
   
-    def etransaction
+    def income
       @income_user_transaction = Transaction.income_display(current_user).order(created_at: :desc)
       @income_transaction_sum = @income_user_transaction.sum(:amount)
+
+      @transaction_sum = Transaction.expense_display(current_user).order(created_at: :desc).sum(:amount)
     end
   
     def members_transactions
       @members = Transaction.by_user
-  
       @members_sum = Transaction.all.sum(:amount)
     end
   

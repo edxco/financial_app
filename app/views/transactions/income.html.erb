@@ -6,12 +6,12 @@
         <section class="text-gray-600 body-font">
             <div class="container px-5 py-24 mx-auto">
                 <div class="flex flex-col text-center w-full mb-20">
-                    <h1 class="sm:text-4xl text-3xl font-medium title-font mb-2 text-gray-900"><%= @current_user.username.upcase %> your balance</h1>
+                    <h1 class="sm:text-4xl text-3xl font-medium title-font mb-2 text-gray-900">
+                        <%= @current_user.username.upcase %> your balance</h1>
                     <p class="lg:w-2/3 mx-auto leading-relaxed text-lg text-green-600">
-                    <span class="font-semibold"><%= Date.today.strftime('%A: %Y - %m - %d') %></span>
+                        <span class="font-semibold"><%= Date.today.strftime('%A: %Y - %m - %d') %></span>
                     </p>
-                    <p
-                        class="inline-flex items-center px-4 py-2 border-0 font-medium text-4xl block mx-auto">
+                    <p class="inline-flex items-center px-4 py-2 border-0 font-medium text-4xl block mx-auto">
                         <!-- Heroicon name: check -->
                         <svg class="w-10 h-10 block" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                             xmlns="http://www.w3.org/2000/svg">
@@ -22,8 +22,7 @@
                         <span class="mx-3 text-red-700"><%= number_with_delimiter(@transaction_sum) %></span>
                         <span class="text-sm font-normal text-red-300 pt-4"> Expenses</span>
                     </p>
-                    <p
-                        class="inline-flex items-center px-4 py-2 border-0 text-4xl font-bold block mx-auto">
+                    <p class="inline-flex items-center px-4 py-2 border-0 text-4xl font-bold block mx-auto">
                         <!-- Heroicon name: check -->
                         <svg class="w-10 h-10 block" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                             xmlns="http://www.w3.org/2000/svg">
@@ -40,9 +39,9 @@
                         <thead>
                             <tr>
                                 <th
-                                    class="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-base uppercase bg-gray-100">
-                                    Group</th>
-                                    <th
+                                    class="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-base text-center uppercase bg-gray-100">
+                                    Income</th>
+                                <th
                                     class="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-base uppercase bg-gray-100">
                                     Description</th>
                                 <th
@@ -57,14 +56,13 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <% @user_transactions.each do |transaction| %>
+                            <%  @income_user_transaction.each do |transaction| %>
                             <tr>
-                                <td class="px-4 py-3">
+                                <td class="px-4 py-3 text-center">
                                     <div
                                         class="w-10 h-10 mr-3 inline-flex items-center justify-center rounded-full bg-green-500 text-green-500 mb-4">
-                                        <i class="p-1 <%= transaction.icon %> fa-lg text-white"></i>
+                                        <i class="p-1 fa fa-money fa-lg text-white"></i>
                                     </div>
-                                    <%= transaction.gname %>
                                 </td>
                                 <td class="px-4 py-3 text-green-700 font-bold">
                                     <%= transaction.name %>
@@ -93,7 +91,7 @@
                                     </a>
                                 </td>
                                 <td class="text-center">
-                                    <a data-confirm="Are you sure?" data-method="delete" href="/transactions/<%=transaction.id%>"
+                                    <a data-confirm="Are you sure?" data-method="delete" href="transaction"
                                         class="rounded-full w-7 h-7 bg-red-500 hover:bg-red-600 p-0 border-0 inline-flex items-center justify-center text-white ml-4">
                                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                                             xmlns="http://www.w3.org/2000/svg">
@@ -109,14 +107,15 @@
                     </table>
                 </div>
                 <div class="flex pl-4 mt-4 w-full mx-auto">
-                    <a href="/income" class="text-green-500 inline-flex items-center md:mb-2 lg:mb-0">View my income
-                        <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
-                          <path d="M5 12h14M12 5l7 7-7 7"></path>
+                    <a href="/income" class="text-green-500 inline-flex items-center md:mb-2 lg:mb-0">View my expenses
+                        <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                            stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
+                            <path d="M5 12h14M12 5l7 7-7 7"></path>
                         </svg>
-                      </a>
+                    </a>
                     <a href="/transactions/new"
                         class="flex ml-auto items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-green-500 hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500">
-                        Add New Expense
+                        Add New Income
                         <!-- Heroicon name: check -->
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                             xmlns="http://www.w3.org/2000/svg">
