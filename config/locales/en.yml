@@ -37,3 +37,6 @@ en:
       groups:
         create: "Create"
         update: "Update"
+      transactions:
+        create: "Create"
+        update: "Update"

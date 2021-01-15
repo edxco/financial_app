@@ -1,36 +1,43 @@
-<div>
-    <%= form_with model: @transaction, method: "post" do |f| %>
-    <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
-    <div class="md:w-1/2 bg-gray-100 rounded-lg p-8 flex flex-col md:mx-auto w-full mt-10 md:mt-0">
-        <h2 class="text-gray-900 text-lg font-medium title-font mb-5">Add a new Transaction</h2>
-        <div class="relative mb-4">
-            <label for="transaction-name" class="leading-7 text-sm text-gray-600">Transaction name</label>
-            <%= f.text_field :name, class: "w-full bg-white rounded border border-gray-300 focus:border-green-500 focus:ring-2 focus:ring-green-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" %>
-        </div>
-        <div class="relative mb-4">
-            <label for="Amount" class="leading-7 text-sm text-gray-600">Amount</label>
-            <div class="mt-1 flex rounded-md shadow-sm">
-                <span
-                    class="inline-flex items-center px-3 rounded-l-md border border-r-0 border-gray-300 bg-gray-50 text-gray-500 text-sm">
-                    $
-                </span>
-                <%= f.text_field :amount, class: "w-full bg-white rounded-r border-t border-r border-b border-gray-300 focus:border-green-500 focus:ring-2 focus:ring-green-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out", placeholder: "0.00" %>
-            </div>
-        </div>
-        <div class="relative mb-4">
-            <label for="group_id" class="leading-7 text-sm text-gray-600">Group *</label>
-            
-            <div class="mt-1 flex rounded-md shadow-sm">
-
-                <%= f.select :group_id, group_for_select, prompt: "Income" %>
-
-            </div>
-            </div>
-        <button
-            class="text-white bg-green-500 border-0 py-2 px-8 focus:outline-none hover:bg-green-600 rounded text-lg">Add
-            new expense</button>
-        <p class="text-xs text-gray-500 mt-3">To save money, or to be careful with money ... It's up to you!</p>
+<%= render 'shared/errors', obj: @transaction %>
+<%= form_with model: @transaction do |f| %>
+<div class="md:w-1/2 bg-gray-100 rounded-lg p-8 flex flex-col md:mx-auto w-full mt-10 md:mt-0">
+    <h2 class="text-gray-900 text-lg font-medium title-font mb-5">Add a new Transaction</h2>
+    <div class="relative mb-4">
+        <label for="transaction-name" class="leading-7 text-sm text-gray-600">Transaction name</label>
+        <%= f.text_field :name, class: "w-full bg-white rounded border border-gray-300 focus:border-green-500 focus:ring-2 focus:ring-green-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" %>
     </div>
-    <% end %>
+    <div class="relative mb-4">
+        <label for="Amount" class="leading-7 text-sm text-gray-600">Amount</label>
+        <div class="mt-1 flex rounded-md shadow-sm">
+            <span
+                class="inline-flex items-center px-3 rounded-l-md border border-r-0 border-gray-300 bg-gray-50 text-gray-500 text-sm">
+                $
+            </span>
+            <%= f.text_field :amount, class: "w-full bg-white rounded-r border-t border-r border-b border-gray-300 focus:border-green-500 focus:ring-2 focus:ring-green-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out", placeholder: "0.00" %>
+        </div>
+    </div>
+    <div class="relative mb-4">
+        <label for="group_id" class="leading-7 text-sm text-gray-600">Group *</label>
 
+        <div class="mt-1 flex rounded-md shadow-sm">
+
+            <%= f.select :group_id, group_for_select, prompt: "Income" %>
+
+        </div>
+    </div>
+    <a href="/groups/new" class='m-2'>
+        <div
+            class="flex ml-auto items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-gray-500 hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500">
+            <span class="mr-2">Add new category</span>
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4">
+                </path>
+            </svg>
+        </div>
+    </a>
+    <%= f.submit class: "text-white bg-green-500 border-0 py-2 px-8 focus:outline-none hover:bg-green-600 rounded text-lg"%>
+    <p class="text-xs text-gray-500 mt-3">To save money, or to be careful with money ... It's up to you!</p>
 </div>
+<% end %>

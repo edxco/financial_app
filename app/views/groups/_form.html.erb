@@ -1,7 +1,7 @@
 <%= render 'shared/errors', obj: @group %>
 <%= form_with model: @group do |f| %>
 <div class="md:w-1/2 bg-gray-100 rounded-lg p-8 flex flex-col md:mx-auto w-full mt-10 md:mt-0">
-  
+
   <div class="relative mb-4">
     <label for="category-name" class="leading-7 text-sm text-gray-600">Category name</label>
     <%= f.text_field :name, class: "w-full bg-white rounded border border-gray-300 focus:border-green-500 focus:ring-2 focus:ring-green-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" %>
@@ -111,7 +111,7 @@
   </div>
 
 
-    <%= f.submit class: "text-white bg-green-500 border-0 py-2 px-8 focus:outline-none hover:bg-green-600 rounded text-lg"%>
+  <%= f.submit class: "text-white bg-green-500 border-0 py-2 px-8 focus:outline-none hover:bg-green-600 rounded text-lg"%>
 
 
 </div>
