@@ -13,7 +13,7 @@ class Transaction < ApplicationRecord
     scope :grouped_display, ->(gid) { where(group_id: gid).joins(:group).joins(:user).select(s_str + s_str2) }
     scope :expense_display, ->(uid) { where(user_id: uid).joins(:group).joins(:user).select(s_str + s_str2) }
     scope :income_display, ->(uid) { where(user_id: uid, group_id: nil).joins(:user).select(s_str + s_str3) }
-    scope :by_user, -> { joins(:user).select(s_str4).group(:uname) }
+    scope :by_user, -> { joins(:group).joins(:user).select(s_str4).group(:uname) }
   
     private
   
