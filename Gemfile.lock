@@ -62,7 +62,7 @@ GEM
       public_suffix (>= 2.0.2, < 5.0)
     aws-eventstream (1.1.0)
     aws-partitions (1.416.0)
-    aws-sdk-core (3.111.0)
+    aws-sdk-core (3.111.1)
       aws-eventstream (~> 1, >= 1.0.2)
       aws-partitions (~> 1, >= 1.239.0)
       aws-sigv4 (~> 1.1)
@@ -114,6 +114,7 @@ GEM
       mimemagic (~> 0.3.2)
     method_source (1.0.0)
     mimemagic (0.3.5)
+    mini_magick (4.11.0)
     mini_mime (1.0.2)
     mini_portile2 (2.5.0)
     minitest (5.14.3)
@@ -228,6 +229,7 @@ DEPENDENCIES
   hirb
   jbuilder (~> 2.7)
   listen (~> 3.2)
+  mini_magick
   pg
   puma (~> 4.1)
   rails (~> 6.0.3, >= 6.0.3.4)
