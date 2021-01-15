@@ -2,34 +2,36 @@
 @import "tailwindcss/components";
 // here goes custom css
 .svg {
-    display: block;
-    margin: 0;
-    padding: 0;
-    position: absolute;
-    top: calc(50%);
-    left: calc(50%);
-  }
+  display: block;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  top: calc(50%);
+  left: calc(50%);
+}
 
 .foo {
-    height: 130px;
-    margin: 0;
-    padding: 0;
-    width: auto;
-    position: relative;
-  }
+  height: 130px;
+  margin: 0;
+  padding: 0;
+  width: auto;
+  position: relative;
+}
 
 select {
   display: block;
   width: 100%;
   padding: 7px;
-  color: #1F2937;
+  color: #1f2937;
   border-radius: 3px;
-  border: 1px #D1D5DB;
+  border: 1px #d1d5db;
 }
-@import "tailwindcss/utilities";
 
+@import "tailwindcss/utilities";
+/* stylelint-disable */
 @layer components {
   .btn-logged {
     @apply lg:p-4 py-3 px-0 font-bold block border-b-2 border-transparent hover:border-indigo-400 lg:mb-0 mb-2
   }
+/* stylelint-enable */
 }
