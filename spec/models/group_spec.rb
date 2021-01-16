@@ -13,11 +13,10 @@ RSpec.describe Group, type: :model do
   end
 
   context 'test group model' do
-
     it 'return true if group is invalid duplicate name' do
-      g1 = Group.new(name: "testgroup 1", icon: "fa fa-handshake", user_id: 1)
+      g1 = Group.new(name: 'testgroup 1', icon: 'fa fa-handshake', user_id: 1)
       g1.save
-      g1 = Group.new(name: "testgroup 1", icon: "fa fa-handshake", user_id: 1)
+      g1 = Group.new(name: 'testgroup 1', icon: 'fa fa-handshake', user_id: 1)
       expect(g1.valid?).to eq(false)
     end
 
