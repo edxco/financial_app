@@ -19,6 +19,6 @@ class ApplicationController < ActionController::Base
   end
 
   def check_signed_in
-    redirect_to users_path(current_user)if logged_in?
+    redirect_to users_path(current_user) if logged_in?
   end
 end

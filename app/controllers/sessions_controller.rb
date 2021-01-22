@@ -1,4 +1,5 @@
 class SessionsController < ApplicationController
+  before_action :check_signed_in, except: %i[destroy]
 
   def new; end
 
