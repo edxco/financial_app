@@ -43,6 +43,8 @@
 - Install Ruby on Rails.
 - Install bundle.
 - Run "bundle install" inside the folder.
+- Run "yarn check files"
+- Run "db:create"
 - Run "rails db:migrate"
 - Run "rails db:seed"
 - Run "rails server" inside folder.

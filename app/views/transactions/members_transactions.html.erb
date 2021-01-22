@@ -1,20 +1,20 @@
 <%= render 'layouts/nav' %>
 <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
 
-    <div class="py-12 px-10 bg-white">
+    <div class="py-12 px-10">
         <section class="text-gray-600 body-font">
             <div class="container px-5 py-24 mx-auto">
                 <div class="flex flex-col text-center w-full mb-20">
-                    <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">All members expenses</h1>
+                    <h1 class="text-2xl font-light title-font mb-4 text-gray-900">All members expenses</h1>
                 </div>
 
                 <div class="flex flex-wrap -m-4 text-center">
 
                     <% @members.each do |member| %>
-                    <div class="p-4 md:w-1/4 sm:w-1/2 w-full">
-                        <div class="border-2 border-gray-200 px-4 py-6 rounded-lg">
-                                <h2 class="title-font font-medium text-2xl text-gray-900"><%= member.uname %></h2>
-                                <h2 class="title-font font-medium text-lg text-gray-900"><%= number_to_currency(member.tot_amount) %></h2>
+                    <div class="p-2 lg:p-4 md:w-1/4 sm:w-1/2 w-full">
+                        <div class="border border-gray-200 px-4 py-3 lg:py-6 rounded-sm shadow-md bg-white flex justify-between md:flex-col">
+                                <div class="title-font font-normal lg:text-2xl text-lg text-gray-900"><%= member.uname.capitalize() %></div>
+                                <div class="title-font font-light lg:font-semibold lg:text-lg text-md text-blue-800"><%= number_to_currency(member.tot_amount) %></div>
 
                         </div>
                     </div>
@@ -25,7 +25,7 @@
             </div>
             <a href="/groups/new" class='w-100 m-2'>
                 <div
-                    class="flex ml-auto items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-green-500 hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500">
+                    class="flex ml-auto items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-500 hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
                     <span class="mr-2">Add new category</span> 
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4"></path></svg>
                 </div>

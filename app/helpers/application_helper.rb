@@ -32,7 +32,7 @@ module ApplicationHelper
     end
   end
 
-  def user_avatar(user, _size = 40)
+  def user_avatar(user)
     if user.avatar.attached?
       user.avatar
     else

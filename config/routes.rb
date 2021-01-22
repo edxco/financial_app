@@ -15,7 +15,6 @@ Rails.application.routes.draw do
 
   resources :transactions
 
-  get '/profile', to: 'pages#profile'
   get '/newgroup', to: 'groups#new'
   get '/newtransaction', to: 'transactions#new'
   get '/income', to: 'transactions#income'

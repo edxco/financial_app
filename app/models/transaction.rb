@@ -1,4 +1,5 @@
 class Transaction < ApplicationRecord
+
   validates :name, presence: true
   validates :amount, presence: true
   belongs_to :user
@@ -20,4 +21,5 @@ class Transaction < ApplicationRecord
   def titlelize_name
     self.name = name.split.collect(&:capitalize).join(' ') if name && !name.blank?
   end
+
 end
