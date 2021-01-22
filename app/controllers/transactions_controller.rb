@@ -69,9 +69,8 @@ class TransactionsController < ApplicationController
 
   def members_transactions
     @members = Transaction.by_user
-    
+
     @members_sum = Transaction.all.sum(:amount)
-    
   end
 
   private
