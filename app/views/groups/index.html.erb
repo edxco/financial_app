@@ -15,6 +15,9 @@
                                         class="w-14 h-14 inline-flex items-center justify-center rounded-full bg-blue-800 text-blue-500 mb-4 lg:w-12 lg:h-12">
                                         <i class="p-1 fas <%= group.icon %> fa-lg text-white"></i>
                                     </div>
+                                    <div class="text-xs text-blue-800">
+                                        <%= group.created_at.strftime('%d-%m-%Y') %>
+                                    </div>
                                 </a>
                             </div>
 
