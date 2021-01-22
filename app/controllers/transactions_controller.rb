@@ -63,13 +63,11 @@ class TransactionsController < ApplicationController
   def income
     @income_user_transaction = Transaction.income_display(current_user).order(created_at: :desc)
     @income_transaction_sum = @income_user_transaction.sum(:amount)
-
     @transaction_sum = Transaction.expense_display(current_user).order(created_at: :desc).sum(:amount)
   end
 
   def members_transactions
     @members = Transaction.by_user
-
     @members_sum = Transaction.all.sum(:amount)
   end
 
