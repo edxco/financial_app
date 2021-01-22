@@ -1,6 +1,6 @@
 # Ruby on rails Capstone: Edx Wallet
 
-<img src="app1.png" width="300" height="auto">
+<img src="app.png" width="300" height="auto">
 
 # Live Demo
 
