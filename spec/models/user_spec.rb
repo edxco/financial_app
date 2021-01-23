@@ -14,6 +14,16 @@ RSpec.describe User, type: :model do
       u1.save
       expect(u1.valid?).to eq(true)
     end
+    
+    context 'test user model' do
+      it { should have_many(:transactions) }
+      it { should have_many(:groups) }
+    
+      it { have_one_attached(:avatar) }
+      it { should validate_presence_of(:avatar) }
+    
+      it { validate_uniqueness_of(:username) }
+    end
 
     it 'return false if is created invalid user with duplicate name' do
       u1 = User.new({ username: 'Test1' })

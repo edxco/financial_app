@@ -15,6 +15,11 @@ RSpec.describe Transaction, type: :model do
   end
 
   context 'test transaction model' do
+    it { should belong_to(:user) }
+    it { should belong_to(:group).optional }
+  
+    it { should validate_presence_of(:name) }
+    it { should validate_presence_of(:amount) }
     it 'return false if created transaction is invalid missing name' do
       e1 = Transaction.new(amount: 25, user_id: 1, group_id: 1)
       e1.save
