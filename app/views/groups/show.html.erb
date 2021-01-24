@@ -1,0 +1,84 @@
+<%= render 'layouts/nav' %>
+<div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+
+  <div class="py-12 bg-white h-screen">
+
+    <section class="text-gray-600 body-font">
+      <div class="container px-5 py-24 mx-auto">
+        <div class="flex flex-col text-center w-full mb-20">
+          <h1 class="sm:text-4xl text-3xl font-medium title-font mb-2 text-gray-900">
+            Category: <%= @group.name.upcase %></h1>
+          <p class="inline-flex items-center px-4 py-2 border-0 text-4xl font-bold block mx-auto">
+            <!-- Heroicon name: check -->
+            <svg class="w-10 h-10 block" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="text-green-700"
+                d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z">
+              </path>
+            </svg>
+            <span class="mx-3 text-green-700"><%= number_with_delimiter(@group_transaction_sum) %></span>
+            <span class="text-sm font-normal text-green-300 pt-4"> Total</span>
+          </p>
+        </div>
+        <div class="w-full mx-auto overflow-auto">
+          <table class="table-auto w-full text-left whitespace-no-wrap">
+            <thead>
+              <tr>
+                <th
+                  class="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-base text-center uppercase bg-gray-100">
+                  Income</th>
+                <th
+                  class="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-base uppercase bg-gray-100">
+                  Description</th>
+                <th colspan="2"
+                  class="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-base uppercase bg-gray-100">
+                  Price</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-light-blue-400">
+              <% @group_transactions.each do |group| %>
+              <tr>
+                <td class="px-4 py-3 text-center">
+                  <div
+                    class="w-10 h-10 mr-3 inline-flex items-center justify-center rounded-full bg-green-500 text-green-500 mb-4">
+                    <i class="p-1 fa <%= group.icon %> fa-lg text-white"></i>
+                  </div>
+                </td>
+                <td class="px-4 py-3 text-green-700 font-bold">
+                  <p><%= group.name %></p>
+                  <p class="font-normal text-xs text-green-600"><%= group.created_at.strftime('%d-%m-%Y') %></p>
+                  <p class="text-gray-500">User: <span class="font-normal"><%= group.uname %></span></p>
+                </td>
+                <td class="p-0 m-0 py-3">
+                  <svg class="w-6 h-6 block mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="text-green-600"
+                      d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z">
+                    </path>
+                  </svg>
+                </td>
+                <td class="pl-0 pr-4 pt-3 pb-4 text-lg text-green-600 font-semibold">
+                  <%= number_with_delimiter(group.amount) %></td>
+                
+              </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+        <div class="flex pl-4 mt-4 w-full mx-auto">
+          <a href="/groups/<%="#{params[:id]}"%>/edit"
+            class="flex ml-auto items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-green-500 hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500">
+            Edit category
+            <!-- Heroicon name: check -->
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </div>
+</div>

@@ -1,0 +1,92 @@
+<%= render 'layouts/nav' %>
+<div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+
+    <div class="py-12 px-10 bg-white">
+        <section class="text-gray-600 body-font">
+            <div class="container px-5 mx-auto">
+                <div class="flex flex-wrap -m-4 text-center">
+
+                    <% @groups.each do |group| %>
+                    <div class="p-2 lg:w-1/4 md:w-1/2 w-full">
+                        <div class="border border-gray-200 px-2 py-3 lg:px-4 lg:py-6 rounded flex justify-between lg:flex-col shadow-md">
+                            <div class="mt-3">
+                                <a href="/groups/<%= group.id %>">
+                                    <div
+                                        class="w-14 h-14 inline-flex items-center justify-center rounded-full bg-blue-800 text-blue-500 mb-4 lg:w-12 lg:h-12">
+                                        <i class="p-1 fas <%= group.icon %> fa-lg text-white"></i>
+                                    </div>
+                                    <div class="text-xs text-blue-800">
+                                        <%= group.created_at.strftime('%d-%m-%Y') %>
+                                    </div>
+                                </a>
+                            </div>
+
+                            <div class="flex-col">
+
+                                <div>
+                                    <a href="/groups/<%= group.id %>"
+                                        class="title-font font-normal lg:text-2xl text-lg text-gray-900">
+                                        <%= group.name %>
+                                    </a>
+                                </div>
+                                <div>
+                                    <a data-confirm="Are you sure?" data-method="delete" href="/groups/<%= group.id %>"
+                                        class="rounded-full w-7 h-7 bg-red-500 hover:bg-red-600 p-0 border-0 inline-flex items-center justify-center text-white mt-2">
+                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16">
+                                            </path>
+                                        </svg>
+                                    </a>
+    
+                                    <a href="/groups/<%=group.id%>/edit"
+                                        class="rounded-full w-7 h-7 bg-blue-800 hover:bg-blue-600 p-0 border-0 inline-flex items-center justify-center text-white ml-4">
+                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z">
+                                            </path>
+                                        </svg>
+                                    </a>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <% end %>
+
+                </div>
+
+            </div>
+            <a href="/groups/new" class='w-100 m-2'>
+                <div
+                    class="flex ml-auto items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-800 hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                    <span class="mr-2">Add new category</span>
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4">
+                        </path>
+                    </svg>
+                </div>
+            </a>
+            <a href="/transactions/new" class='w-100 m-2'>
+                <div
+                    class="flex ml-auto items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-gray-500 hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500">
+                    <span class="mr-2">Add new transaction</span>
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z">
+                        </path>
+                    </svg>
+                </div>
+            </a>
+
+        </section>
+
+
+    </div>
+
+</div>

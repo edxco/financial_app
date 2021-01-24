@@ -1,0 +1,87 @@
+<style>
+  #menu-toggle:checked+#menu {
+    display: block;
+  }
+</style>
+
+
+<header
+  class="lg:px-16 p-6 m-0 bg-white flex flex-wrap items-center justify-between lg:py-2 bg-gradient-to-b from-blue-800 to-blue-900">
+  <div class="mr-6 pt-2">
+    <a href="#">
+      <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
+        style="position:relative; display: block; margin: 0 auto;" xmlns:xlink="http://www.w3.org/1999/xlink" x="0"
+        y="10" viewBox="0 0 300 300" width="40px">
+        <g>
+          <path style="fill:#dbdbdb; transform-origin: center center;"
+            d="M127.6,195.2l-58.4-33.6v79.2c17.6,9.2,37.6,14.4,58.4,14.4c25.2,0,48.8-7.2,68.4-20L127.6,195.2z" />
+          <path style="fill:#fff; transform-origin: center center;"
+            d="M186,161.2l-58.4,34l68.4,39.6c35.6-22.8,58.8-62.4,58.8-107.2c0-2,0-4,0-6L186,161.2z" />
+          <path style="fill:#dbdbdb; transform-origin: center center;"
+            d="M186,94v67.6l68.4-39.6c-2-46.8-29.2-86.8-68.4-107.2V94z" />
+          <path style="fill:#fff;"
+            d="M127.6,60L186,93.6V14.4C168.4,5.2,148.4,0,127.6,0c-25.2,0-48.8,7.2-68.4,20L127.6,60z" />
+          <path style="fill:#dbdbdb; transform-origin: center center;"
+            d="M69.2,94l58.4-34L59.2,20.4C23.6,43.2,0.4,82.8,0.4,127.6c0,2,0,4,0,6L69.2,94z" />
+          <path style="fill:#fff; transform-origin: center center;"
+            d="M69.2,161.2V93.6L0.8,133.2C2.8,180,30,220,69.2,240.4V161.2z" />
+        </g>
+      </svg>
+    </a>
+  </div>
+
+  <div class="flex items-center justify-between lg:hidden">
+    <div class="place-self-center px-3">
+      <%= image_tag(user_avatar(current_user), class: "h-10 rounded-full mt-1 mb-0 pointer-cursor") %>
+    </div>
+    <div class="font-bold text-gray-200">
+      <%= current_user.username.upcase %>
+    </div>
+  </div>
+
+  <label for="menu-toggle" class="pointer-cursor lg:hidden block">
+    <svg class="fill-current text-white" xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+      viewBox="0 0 20 20">
+      <title>menu</title>
+      <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path>
+    </svg>
+  </label>
+
+  <input class="hidden" type="checkbox" id="menu-toggle" />
+
+  <div class="hidden lg:flex lg:items-center lg:w-auto w-full" id="menu">
+    <nav>
+      <ul class="lg:flex items-center justify-between text-base text-white pt-4 lg:pt-0 text-lg">
+        <li><a href="/income" class="lg:p-4 py-3 px-0 block border-b-2 border-transparent hover:border-green-400">
+            My Income</a></li>
+        <li><a class="lg:p-4 py-3 px-0 block border-b-2 border-transparent hover:border-green-400"
+            href="/transactions">My Expenses</a>
+        </li>
+        <li><a class="lg:p-4 py-3 px-0 block border-b-2 border-transparent hover:border-green-400"
+            href="/memberstransactions">Members Expenses</a>
+        </li>
+
+        <li><a class="lg:p-4 py-3 px-0 block border-b-2 border-transparent hover:border-green-400"
+            href="/groups">Categories</a></li>
+        <li class="lg:hidden">
+          <% check_logged %>
+        </li>
+      </ul>
+    </nav>
+  </div>
+
+
+  <div class="items-center justify-between hidden lg:flex">
+    <div class="text-white font-light">
+      <% check_logged %>
+    </div>
+    <div class="font-bold text-gray-200 ml-3">
+      <%= current_user.username.upcase %>
+    </div>
+    <div class="place-self-center px-3">
+      <%= image_tag(user_avatar(current_user), class: "h-10 rounded-full mt-1 mb-0 pointer-cursor") %>
+    </div>
+  </div>
+
+
+</header>

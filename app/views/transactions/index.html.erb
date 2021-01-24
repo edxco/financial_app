@@ -1,0 +1,103 @@
+<%= render 'layouts/nav' %>
+<div class="container-fluid m-0">
+    <div class="flex px-8 justify-between w-full shadow h-20 text-lg m-0 bg-white lg:px-16">
+        <div class="place-self-center text-gray-500 md:text-lg lg:text-xl ">
+            Total Expenses of
+            <span class="text-gray-700"><%= @current_user.username.capitalize() %></span>
+            <p class="text-xs text-blue-900"><%= Date.today.strftime('%A, %Y - %m - %d') %></p>
+        </div>
+        <div class="place-self-center font-semibold text-gray-700 inline-flex text-2xl ">
+            <span class="font-normal text-gray-500">$&nbsp;</span>
+            <%= number_with_delimiter(@transaction_sum) %></div>
+    </div>
+</div>
+<main class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+
+    <div class="py-3 mt-14 mb-28">
+
+        <section class="text-gray-600 body-font">
+            <div class="container px-5 mx-auto">
+
+                <% @user_transactions.each do |transaction| %>
+                <div class="flex justify-between w-full shadow-md h-32 mb-4 bg-white">
+                    <div class="w-28 flex-none text-center">
+                        <div class="h-20">
+                            <div
+                                class="w-10 h-10 mt-4 inline-flex items-center justify-center rounded-full bg-blue-500 text-blue-500 mb-4">
+                                <i class="p-1 <%= transaction.icon %> fa-lg text-white"></i>
+                            </div>
+
+                        </div>
+                        <div class="text-gray-600 font-normal text-lg capitalize"><%= transaction.gname %></div>
+                    </div>
+                    <div class="flex-1">
+                        <div class="h-16 pt-3 border-b border-b-gray-50 text-gray-500 font-light capitalize text-2xl">
+                            <p><%= transaction.name %></p>
+                        </div>
+                        <div class="h-4">&nbsp;</div>
+                        <div class="text-gray-400"><%= transaction.created_at.strftime('%d-%m-%Y') %></div>
+                    </div>
+                    <div class="w-32 flex-none text-right pr-5 font-medium text-gray-600 ">
+                        <div class="h-16 pt-3 border-b border-b-gray-50 text-2xl">
+                            <span class="text-gray-500 font-normal ">$
+                            </span><%= number_with_delimiter(transaction.amount) %>
+                        </div>
+                        <div class="h-4">&nbsp;</div>
+                        <div>
+                            <a href="/transactions/<%=transaction.id%>/edit"
+                                class="rounded-full w-7 h-7 bg-blue-500 hover:bg-blue-600 p-0 border-0 inline-flex items-center justify-center text-white ml-4">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z">
+                                    </path>
+                                </svg>
+                            </a>
+                            <a data-confirm="Are you sure?" data-method="delete"
+                                href="/transactions/<%=transaction.id%>"
+                                class="rounded-full w-7 h-7 bg-red-500 hover:bg-red-600 p-0 border-0 inline-flex items-center justify-center text-white ml-4">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16">
+                                    </path>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <% end %>
+
+                <div class="flex pl-4 mt-4 w-full mx-auto">
+                    <a href="/income" class="text-blue-500 inline-flex text-lg items-center md:mb-2 lg:mb-0">View my income
+                        <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                            stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
+                            <path d="M5 12h14M12 5l7 7-7 7"></path>
+                        </svg>
+                    </a>
+                    <a href="/transactions/new"
+                        class="flex ml-auto items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-lg font-medium text-white bg-blue-500 hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                        Add New Expense
+                        <!-- Heroicon name: check -->
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </div>
+</main>
+
+<div class="fixed bottom-0 w-full">
+    <div
+        class="flex px-8 justify-between w-full shadow h-20 text-white text-lg m-0 bg-blue-900 md:text-xl lg:text-2xl lg:px-16">
+        <div class="place-self-center">Total Income</div>
+        <div class="place-self-center font-semibold">
+            <span class="font-normal text-gray-50">$ </span>
+            <%= number_with_delimiter(@income_transaction_sum) %>
+        </div>
+    </div>
+</div>

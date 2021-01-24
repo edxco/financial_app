@@ -1,0 +1,98 @@
+<div class="py-12 bg-gradient-to-b from-blue-800 to-blue-900 h-screen">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="lg:text-center">
+          
+        <%= image_tag(user_avatar(current_user), class: 'avatar-round avatar_main_menu') %>
+
+        <h2 class="text-lg text-blue-300 tracking-wide uppercase">Welcome <span class="font-semibold"><%= current_user.username.upcase %></span></h2>
+        <span class="sm:ml-3">
+            <a data-method="delete" href="/logout" class="inline-flex items-center mt-5 mb-3 px-4 py-2 border rounded-md shadow-sm text-sm font-medium text-white border-gray-200 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-300">
+              <!-- Heroicon name: check -->
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"></path>
+            </svg>
+              Log out
+          </a>
+        </span>
+        <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-white sm:text-4xl">
+          A better way to <span class="text-blue-400">manage your</span> money
+        </p>
+      </div>
+  
+      <div class="mt-10">
+        <dl class="space-y-10 md:space-y-0 md:grid md:grid-cols-2 md:gap-x-8 md:gap-y-10">
+          <a href="/transactions" class="flex">
+            <div class="flex-shrink-0">
+              <div class="flex items-center justify-center h-12 w-12 rounded-full border-2 border-blue-400 text-white">
+                <!-- Heroicon name: globe-alt -->
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+              </div>
+            </div>
+            <div class="ml-4">
+              <dt class="text-xl leading-6 font-medium text-white">
+                My expenses
+              </dt>
+              <dd class="mt-2 text-lg text-gray-300">
+                Track your expenses everyday and view all the transactions in the app
+              </dd>
+            </div>
+          </a>
+
+          <a href="/income" class="flex">
+            <div class="flex-shrink-0">
+              <div class="flex items-center justify-center h-12 w-12 rounded-full border-2 border-blue-400 text-white">
+                <!-- Heroicon name: annotation -->
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+              </div>
+            </div>
+            <div class="ml-4">
+              <dt class="text-xl leading-6 font-medium text-white">
+                My Income
+              </dt>
+              <dd class="mt-2 text-lg text-gray-300">
+                The best time of day is when someone pays you!
+              </dd>
+            </div>
+          </a>
+  
+          <a href="groups/" class="flex">
+            <div class="flex-shrink-0">
+              <div class="flex items-center justify-center h-12 w-12 rounded-full border-2 border-blue-400 text-white">
+                <!-- Heroicon name: scale -->
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"></path></svg>
+              </div>
+            </div>
+            <div class="ml-4">
+              <dt class="text-xl leading-6 font-medium text-white">
+                Categories
+              </dt>
+              <dd class="mt-2 text-lg text-gray-300">
+                Start grouping your expenses. You could find that your morning Starbucks run is costing you a lot.
+              </dd>
+            </div>
+          </a>
+  
+          <a href="/memberstransactions" class="flex">
+            <div class="flex-shrink-0">
+              <div class="flex items-center justify-center h-12 w-12 rounded-full border-2 border-blue-400 text-white">
+                <!-- Heroicon name: lightning-bolt -->
+                <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                </svg>
+              </div>
+            </div>
+            <div class="ml-4">
+              <dt class="text-xl leading-6 font-medium text-white">
+                Member expenses
+              </dt>
+              <dd class="mt-2 text-lg text-gray-300">
+                See the expenses of the family and plan togheter a better financial future.
+              </dd>
+            </div>
+          </a>
+  
+
+        </dl>
+      </div>
+    </div>
+  </div>

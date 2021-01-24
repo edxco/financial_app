@@ -1,0 +1,44 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+// here goes custom css
+.svg {
+  display: block;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  top: calc(50%);
+  left: calc(50%);
+}
+
+.foo {
+  height: 130px;
+  margin: 0;
+  padding: 0;
+  width: auto;
+  position: relative;
+}
+
+select {
+  display: block;
+  width: 100%;
+  padding: 7px;
+  color: #1f2937;
+  border-radius: 3px;
+  border: 1px #d1d5db;
+}
+
+.avatar_main_menu {
+  height: 120px;
+}
+
+@import "tailwindcss/utilities";
+/* stylelint-disable */
+@layer components {
+  .btn-logged {
+    @apply mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm
+  }
+  .avatar-round {
+    @apply rounded-full mb-3 md:mx-auto border-4 border-gray-400;
+  }
+}
+/* stylelint-enable */
